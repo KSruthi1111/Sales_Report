@@ -1,0 +1,43 @@
+<html>
+<h1 style="background-color:DodgerBlue;"><font size="4" color="white">Menu&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;User Name:Deepika Sruthi&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Sales Report</font></h1>
+  <head>
+    <title>JavaScript Bar Chart</title>
+    <script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
+  </head>
+  <body>
+<label for="Sales">Categoria:</label>
+<select id="cars">
+  <option value="clothes">Clothes</option>
+  <option value="food">Food</option>
+  <option value="groceries">Groceries</option>
+</select>
+    <div id="container" style="width: 100%; height: 90%"></div>
+    <script>
+      anychart.onDocumentReady(function() {
+ 
+        // set the data
+        var data = {
+            header: ["Name", "Sales Profit"],
+            rows: [
+              ["January (2021)", 70],
+              ["February (2021)", 300],
+              ["March (2021)", 50],
+              ["April (2021)", 550]
+        ]};
+ 
+        // create the chart
+        chart = anychart.column();;
+ 
+        // add the data
+        chart.data(data);
+ 
+        // set the chart title
+        chart.title("Monthly Sales Report");
+ 
+        // draw
+        chart.container("container");
+        chart.draw();
+      });
+    </script>
+  </body>
+</html>
