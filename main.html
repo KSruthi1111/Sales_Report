@@ -6,16 +6,45 @@
   </head>
   <body>
 <label for="Sales">Categoria:</label>
-<select id="cars">
-  <option value="clothes">Clothes</option>
-  <option value="food">Food</option>
-  <option value="groceries">Groceries</option>
+<select id="mySelect" onchange="fun()">
+  <option value="1">Clothes</option>
+  <option value="2">Food</option>
+  <option value="3">Groceries</option>
 </select>
     <div id="container" style="width: 100%; height: 90%"></div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>
-      anychart.onDocumentReady(function() {
- 
-        // set the data
+function fun() {
+var value = $( "#mySelect" ).val();
+document.getElementById("container").innerHTML="";
+var data;
+if(value == "1")
+{
+// set the data
+        var data = {
+            header: ["Name", "Sales Profit"],
+            rows: [
+              ["January (2021)", 50],
+              ["February (2021)", 200],
+              ["March (2021)", 110],
+              ["April (2021)", 160]
+        ]};
+}
+else if(value == "2")
+{
+// set the data
+        var data = {
+            header: ["Name", "Sales Profit"],
+            rows: [
+              ["January (2021)", 90],
+              ["February (2021)", 150],
+              ["March (2021)", 300],
+              ["April (2021)", 520]
+        ]};
+}
+else if(value == "3")
+{
+// set the data
         var data = {
             header: ["Name", "Sales Profit"],
             rows: [
@@ -23,6 +52,33 @@
               ["February (2021)", 300],
               ["March (2021)", 50],
               ["April (2021)", 550]
+        ]};
+}
+
+ // create the chart
+        chart = anychart.column();
+ 
+        // add the data
+        chart.data(data);
+ 
+        // set the chart title
+        chart.title("Monthly Sales Report");
+ 
+        // draw
+        chart.container("container");
+        chart.draw();
+}
+
+anychart.onDocumentReady(function() {
+ 
+        // set the data
+        var data = {
+            header: ["Name", "Sales Profit"],
+            rows: [
+              ["January (2021)", 10],
+              ["February (2021)", 500],
+              ["March (2021)", 210],
+              ["April (2021)", 150]
         ]};
  
         // create the chart
@@ -38,6 +94,7 @@
         chart.container("container");
         chart.draw();
       });
+      
     </script>
   </body>
 </html>
